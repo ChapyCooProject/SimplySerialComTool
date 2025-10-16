@@ -100,11 +100,3 @@
      - 0x1F:\<US\>
      - 0x7F:\<DEL\>
 
-
-ダウンロード
-------------
-
-   * 実行ファイルは、下記URLからダウンロードできます。
-
-        https://drive.google.com/drive/folders/1UGaaVB4WEtTmSkVfm9mhlPtAWaU0CFEB?usp=sharing
-

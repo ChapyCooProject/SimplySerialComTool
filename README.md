@@ -98,10 +98,3 @@ Notes on Data Transmission
       - 0x1F:\<US\>
       - 0x7F:\<DEL\>
 
-Downloading the Executable File
--------------------------------
-
-   * The executable file can be downloaded from the following URL.
-
-      - [Download](https://drive.google.com/drive/folders/1UGaaVB4WEtTmSkVfm9mhlPtAWaU0CFEB?usp=sharing)
-
