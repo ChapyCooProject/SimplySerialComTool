@@ -29,8 +29,8 @@ VSVersionInfo(
         StringStruct(u'FileDescription', u'シリアル通信試験用の簡易ツール'),
         StringStruct(u'FileVersion', u'1.00.00'),
         StringStruct(u'InternalName', u'ChapyCooProject'),
-        StringStruct(u'LegalCopyright', u'©ChapyCooProject'),
-        StringStruct(u'OriginalFilename', u'簡易シリアル通信ソフト.exe'),
+        StringStruct(u'LegalCopyright', u'Copyright (c) 2026 ChapyCooProject. Licensed under the MIT License.'),
+        StringStruct(u'OriginalFilename', u'SimpleSerialCommunication.exe'),
         StringStruct(u'ProductName', u'簡易シリアル通信ソフト'),
         StringStruct(u'ProductVersion', u'1.00.00')])
       ]), 

@@ -16,16 +16,10 @@ Introduction
    * No installation is required; it runs as a standalone executable.
    * It is compatible with 64-bit versions of Windows; it will not run on 32-bit versions.
 
-About the Executable File
--------------------------
-
-   * The executable file is located in the "exe" folder.
-     The filename is "SimpleSerialCommunicationSoftware.exe".
-
 Usage (Serial Communication Connection)
 ---------------------------------------
 
-   1. Launch the executable file "SimpleSerialCommunicationSoftware.exe".
+   1. Launch the executable file "SimpleSerialCommunication.exe".
    2. Configure the settings in the "Communication Settings" at the top left of the screen, then click the "Connect" button.
    3. In the "Flow Control & Monitor" section at the top left of the screen, you can confirm the connection status.
 
@@ -98,10 +92,7 @@ Notes on Data Transmission
       - 0x1F:\<US\>
       - 0x7F:\<DEL\>
 
-Downloading the Executable File
--------------------------------
-
-   * The executable file can be downloaded from the following URL.
-
-      - [Download](https://drive.google.com/drive/folders/1UGaaVB4WEtTmSkVfm9mhlPtAWaU0CFEB?usp=sharing)
+License
+-----------------------------------------------
+This project is licensed under the MIT License.
 

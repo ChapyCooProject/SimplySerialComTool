@@ -2,6 +2,7 @@ import sys
 import tkinter as tk
 import serial.tools.list_ports
 import threading
+import wmi
 
 from tkinter import ttk
 from tkinter import messagebox
@@ -95,8 +96,11 @@ class FormCreator(tk.Frame):
         self.tbBaudRate.insert(0, "9600")
 
         # 指定可能なCOMポートを取得
-        ports = serial.tools.list_ports.comports()
-        ports_asc = sorted(ports) # COMポート名でソート
+        #ports = serial.tools.list_ports.comports()
+        #ports_asc = sorted(ports) # COMポート名でソート
+
+        # COMポートを取得して表示
+        com_ports = self.get_com_ports_from_wmi()
 
         # コンボボックスにセットするリストの作成
         databitList = [4,5,6,7,8]
@@ -106,14 +110,17 @@ class FormCreator(tk.Frame):
         charCodeList = ["ascii","shift-jis","utf-8"]
 
         # コンボボックスの作成
-        self.cbComPort = ttk.Combobox(self.frame1, values=[port.device for port in ports_asc], state="readonly")
+        self.cbComPort = ttk.Combobox(self.frame1, values=com_ports, state="readonly")
+        #self.cbComPort = ttk.Combobox(self.frame1, values=[port.device for port in ports_asc], state="readonly")
         self.cbDataBit = ttk.Combobox(self.frame1, values=databitList, state="readonly")
         self.cbParity = ttk.Combobox(self.frame1, values=parityList, state="readonly")
         self.cbStopBit = ttk.Combobox(self.frame1, values=stopbitList, state="readonly")
         self.cbHandShake = ttk.Combobox(self.frame1, values=handshakeList, state="readonly")
         self.cbCharCode = ttk.Combobox(self.frame1, values=charCodeList, state="readonly")
-        if len(ports_asc) > 1:
-            self.cbComPort.set(ports_asc[0].device)
+        if len(com_ports) > 1:
+            self.cbComPort.set(com_ports[0])
+        #if len(ports_asc) > 1:
+        #    self.cbComPort.set(ports_asc[0].device)
         self.cbDataBit.set(databitList[4])
         self.cbParity.set(parityList[0])
         self.cbStopBit.set(stopbitList[0])
@@ -543,3 +550,18 @@ class FormCreator(tk.Frame):
             self.tbSendTime.configure(state=tk.NORMAL)
             self.lblSendTime.configure(state=tk.NORMAL)
 
+    """
+    COMポート取得
+    """
+    def get_com_ports_from_wmi(self):
+        wmi_obj = wmi.WMI()
+        com_ports = []
+    
+        # WMI を使ってシリアルポートを取得
+        for port in wmi_obj.query("SELECT * FROM Win32_SerialPort"):
+            com_ports.append(port.DeviceID)  # COMポート名はDeviceIDに格納されている
+    
+        # COMポート名を昇順でソート
+        com_ports.sort()
+
+        return com_ports
